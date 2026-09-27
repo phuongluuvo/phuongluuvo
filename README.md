@@ -1,11 +1,17 @@
+<h1 align="center">Phuong Luu Vo, Ph.D.</h1>
+
 <p align="center">
-  <a href="https://phuongluuvo.github.io" target="_blank" rel="noopener noreferrer">
-    <img
-      src="./website-preview.png"
-      alt="Phuong Luu's website preview"
-      style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s;"
-      onmouseover="this.style.transform='scale(1.02)'"
-      onmouseout="this.style.transform='scale(1)'"
-    />
+  <b>Associate Professor</b><br>
+  School of Computer Science and Engineering<br>
+  International University — Vietnam National University Ho Chi Minh City
+</p>
+
+<p align="center">
+  <a href="https://phuongluuvo.github.io" target="_blank">
+    <img src="https://img.shields.io/badge/Visit_My_Website-PhuongLuuVo.github.io-blue?style=for-the-badge&logo=google-chrome" alt="Visit Website">
   </a>
+</p>
+
+<p align="center">
+  <i>Click the button above to view my research, publications, and teaching.</i>
 </p>
