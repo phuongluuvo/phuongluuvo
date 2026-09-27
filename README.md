@@ -11,7 +11,3 @@
     <img src="https://img.shields.io/badge/Visit_My_Website-PhuongLuuVo.github.io-blue?style=for-the-badge&logo=google-chrome" alt="Visit Website">
   </a>
 </p>
-
-<p align="center">
-  <i>Click the button above to view my research, publications, and teaching.</i>
-</p>
