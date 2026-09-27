@@ -2,7 +2,6 @@ name: Update Website Preview
 
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "0 0 * * *"
 
@@ -34,21 +33,24 @@ jobs:
 
           (async () => {
             const browser = await chromium.launch();
-
             const page = await browser.newPage({
-              viewport: {
-                width: 1440,
-                height: 900
-              }
+              viewport: { width: 1440, height: 900 }
             });
 
             await page.goto('https://phuongluuvo.github.io', {
               waitUntil: 'networkidle'
             });
 
-            await page.screenshot({
-              path: 'website-preview.png',
-              fullPage: false
+            // REPLACE '.bio-container' WITH THE ACTUAL SELECTOR FROM YOUR WEBSITE
+            // You might need to adjust this. For example: 'main', '.hero', '#bio', etc.
+            const element = page.locator('.bio-container'); 
+            
+            // Wait for the element to be visible before screenshotting
+            await element.waitFor();
+
+            // Screenshot ONLY that specific element
+            await element.screenshot({
+              path: 'website-preview.png'
             });
 
             await browser.close();
@@ -59,7 +61,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           git add website-preview.png
 
           if git diff --cached --quiet; then
