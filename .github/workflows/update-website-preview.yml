@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    # Run every 6 hours
-    - cron: "0 */6 * * *"
+    - cron: "0 0 * * *"
 
 permissions:
   contents: write
@@ -15,26 +14,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout profile repository
-        uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
-          node-version: lts/*
+          node-version: 20
 
       - name: Install Playwright
         run: |
           npm install playwright
           npx playwright install --with-deps chromium
 
-      - name: Take screenshot
+      - name: Take website screenshot
         run: |
           node <<'EOF'
           const { chromium } = require('playwright');
 
           (async () => {
             const browser = await chromium.launch();
+
             const page = await browser.newPage({
               viewport: {
                 width: 1440,
@@ -55,7 +55,7 @@ jobs:
           })();
           EOF
 
-      - name: Commit updated screenshot
+      - name: Commit screenshot
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -63,7 +63,7 @@ jobs:
           git add website-preview.png
 
           if git diff --cached --quiet; then
-            echo "No changes to website preview."
+            echo "No changes to website-preview.png"
           else
             git commit -m "chore: update website preview"
             git push
