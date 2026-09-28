@@ -1,4 +1,4 @@
-<h1 align="center">Phuong Luu Vo, Ph.D.</h1>
+<h1 align="center">Vo Thi Luu Phuong, Ph.D.</h1>
 
 <p align="center">
   <b>Associate Professor</b><br>
